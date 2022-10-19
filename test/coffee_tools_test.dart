@@ -21,4 +21,40 @@ void main() {
       expect(() => CoffeeTools.cupsToOunces(0), throwsArgumentError);
     });
   });
+
+  group("recomended Ratios", () {
+    test('French press test', () { // test to input french press, input cups, input ounces, output water and coffee in grams 
+      var gramsRatio = [];
+      int cups = 4;
+      gramsRatio = CoffeeTools.ratioWaterCoffee(0, cups);
+      expect(gramsRatio, [4258.08,304.1485714285714]);
+    });
+
+    test('Drip Machine test', () { // test to input Drip Machine, input cups, input ounces, output water and coffee in grams 1/17
+      int cups = 4;
+      var gramsRatio = [];
+      gramsRatio = CoffeeTools.ratioWaterCoffee(1, cups); 
+      expect(gramsRatio, [4258.08,250.47529411764705]);
+    });
+
+    test('French press invalid input 0', (){
+      int cups = 0;
+      
+      expect(() =>  CoffeeTools.ratioWaterCoffee(0, cups), throwsArgumentError);
+    });
+    test('Drip Machine invalid input 0', (){
+      int cups = 0;
+      expect(() =>  CoffeeTools.ratioWaterCoffee(1, cups), throwsArgumentError);
+    });
+    test('French press invalid input negative', (){
+      int cups = -1;
+      
+      expect(() =>  CoffeeTools.ratioWaterCoffee(0, cups), throwsArgumentError);
+    });
+    test('Drip Machine invalid input negative', (){
+      int cups = -1;
+      expect(() =>  CoffeeTools.ratioWaterCoffee(1, cups), throwsArgumentError);
+    });
+
+  });
 }
