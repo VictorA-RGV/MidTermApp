@@ -28,6 +28,8 @@ void main() {
     */
     test("should give recommendation for French Press", () {
       // your code here
+      //final frechPressBtnFinder = find.byValueKey('french-press-button');
+
     });
 
     /*
