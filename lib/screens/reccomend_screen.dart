@@ -65,7 +65,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                           alignment: Alignment.center,
                           child: Text(
                             "Recommended",
-                            style: TextStyle(fontSize: 18, color: _iconBlue),
+                            style: TextStyle(fontSize: 18, color: _iconBlue, fontFamily: 'Kollektif', letterSpacing: 1.5,),
                           ),
                         ),
                       ),
@@ -76,7 +76,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                         indent: 15,
                         endIndent: 15,
                       ),
-                      Padding(padding: EdgeInsets.all(10)),
+                      Padding(padding: EdgeInsets.all(6)),
                       SizedBox(
                           height: 51,
                           width: 202,
@@ -88,23 +88,23 @@ class _RecommendScreenState extends State<RecommendScreen> {
                                   : "${toRatioItems[1].round()}g - medium ground coffee \n ${toRatioItems[0].round()}g - water",
                               //"${toRatioItems[1].round()} g - ${ } \n ${toRatioItems[0].round()} g - water",
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 14, color: _iconBlue),
+                              style: TextStyle(fontSize: 14, color: _iconBlue, fontFamily: 'Kollektif', letterSpacing: 1),
                               key: Key('recommend-coffee-water-text'),
                             ),
                           )),
-                      Padding(padding: EdgeInsets.all(8)),
+                      Padding(padding: EdgeInsets.all(10)),
                       SizedBox(
                         height: 12,
                         width: 162,
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            " enjoy your delicious coffee",
+                            " Enjoy your delicious coffee.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 10,
                                 color: _iconBlue,
-                                fontStyle: FontStyle.italic),
+                                fontStyle: FontStyle.italic, fontFamily: 'Kollektif', letterSpacing: 1),
                           ),
                         ),
                       )
@@ -142,7 +142,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                               child: Text(
                                 "Done",
                                 style: TextStyle(
-                                  color: Color(0XFFFFFFFF),
+                                  color: Color(0XFFFFFFFF), fontFamily: 'Montserrat', letterSpacing: 1 
                                 ),
                               ),
                             )),

@@ -49,7 +49,7 @@ class _InputCupsScreenState extends State<InputCupsScreen> {
           children: [
             Text(
               "How many cups would you like?",
-              style: TextStyle(color: _iconBlue, fontSize: 18), key: Key('cups-question-text'),
+              style: TextStyle(color: _iconBlue, fontSize: 18, fontFamily: 'Montserrat',letterSpacing: 1), key: Key('cups-question-text'),
             ),
             Padding(padding: EdgeInsets.all(14)),
             Container(
@@ -69,7 +69,7 @@ class _InputCupsScreenState extends State<InputCupsScreen> {
                       controller: cupTextController,
                       decoration: InputDecoration(border: InputBorder.none),
                       keyboardType: TextInputType.number,
-                      style: TextStyle(color: _iconBlue),
+                      style: TextStyle(color: _iconBlue,fontFamily: 'Montserrat',letterSpacing: 1 ),
                       onChanged: (value) {
                         setState(() {
                           // value is parsed into an int only when there are positive whole numbers, this enables continue button.
@@ -122,9 +122,9 @@ class _InputCupsScreenState extends State<InputCupsScreen> {
                           borderRadius: BorderRadius.circular(20))),
                   child: Text(
                     "Continue",
-                    style: TextStyle(
+                    style: TextStyle( 
                       color:
-                          _continueBtn ? Color(0xFFFFFFFF) : Color(0XFF757474),
+                          _continueBtn ? Color(0xFFFFFFFF) : Color(0XFF757474), fontFamily: 'Montserrat',letterSpacing: 1
                     ),
                   ),
                 )),
