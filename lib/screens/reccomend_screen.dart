@@ -4,27 +4,35 @@ import 'input_cups_screen.dart';
 import 'choose_device_screen.dart';
 
 class RecommendScreen extends StatefulWidget {
-  const RecommendScreen({Key key}) : super(key: key);
+  List toRatioItems = [];
+  int pressOrdrip;
+  RecommendScreen({this.toRatioItems, this.pressOrdrip});
 
   @override
-  State<RecommendScreen> createState() => _RecommendScreenState();
+  State<RecommendScreen> createState() =>
+      _RecommendScreenState(toRatioItems, pressOrdrip);
 }
 
 class _RecommendScreenState extends State<RecommendScreen> {
+  List toRatioItems;
+  int pressOrdrip;
+  _RecommendScreenState(this.toRatioItems, this.pressOrdrip);
+
   final Color _iconTransparent = Colors.transparent;
   final Color _iconBlue = Color(0xFF4C748B);
-  final Color _iconGrey = Color(0XFFE2E2E2);
-  bool _continueBtn = false;
-  int _pressOrdrip = null;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton(key: Key('recommended-back-btn'),
           child: IconButton(
-            onPressed: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => InputCupsScreen())),
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InputCupsScreen(
+                          pressOrdrip: pressOrdrip,
+                        ))),
             icon: const Icon(
               Icons.arrow_back_ios_new,
               color: Color(0xFF4C748B),
@@ -70,17 +78,21 @@ class _RecommendScreenState extends State<RecommendScreen> {
                       ),
                       Padding(padding: EdgeInsets.all(10)),
                       SizedBox(
-                          height: 40,
-                          width: 162,
+                          height: 51,
+                          width: 202,
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                              " g - course ground coffee \n g - water",
+                              (pressOrdrip == 0)
+                                  ? "${toRatioItems[1].round()}g - course ground coffee \n ${toRatioItems[0].round()}g - water"
+                                  : "${toRatioItems[1].round()}g - medium ground coffee \n ${toRatioItems[0].round()}g - water",
+                              //"${toRatioItems[1].round()} g - ${ } \n ${toRatioItems[0].round()} g - water",
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 14, color: _iconBlue),
+                              key: Key('recommend-coffee-water-text'),
                             ),
                           )),
-                      Padding(padding: EdgeInsets.all(10)),
+                      Padding(padding: EdgeInsets.all(8)),
                       SizedBox(
                         height: 12,
                         width: 162,
@@ -100,47 +112,44 @@ class _RecommendScreenState extends State<RecommendScreen> {
                   ),
                 ),
               ),
-              //Padding(padding: EdgeInsets.all(14)),
               SafeArea(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Align(
                       alignment: Alignment.bottomCenter,
-                      child: Padding(padding:const EdgeInsets.all(30) , child:  SizedBox(
-                          // this box can be reused for other continues and done screen
-                          height: 46,
-                          width: 280,
-                          key: Key('ctn-btn-recommend'),
-                          child: OutlinedButton(
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ChooseDeviceScreen(
-                                        // insert data to pass here:
-                                        ))),
-                            style: ElevatedButton.styleFrom(
-                                onSurface: _iconBlue,
-                                onPrimary: _iconBlue,
-                                primary: _iconBlue,
-                                side: BorderSide(color: _iconTransparent),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                            child: Text(
-                              "Done",
-                              style: TextStyle(
-                                color: Color(0XFFFFFFFF),
+                      child: Padding(
+                        padding: const EdgeInsets.all(30),
+                        child: SizedBox(
+                            height: 46,
+                            width: 280,
+                            key: Key('done-btn'),
+                            child: OutlinedButton(
+                              onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ChooseDeviceScreen(
+                                          // insert data to pass here:
+
+                                          ))),
+                              style: ElevatedButton.styleFrom(
+                                  onSurface: _iconBlue,
+                                  onPrimary: _iconBlue,
+                                  primary: _iconBlue,
+                                  side: BorderSide(color: _iconTransparent),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                              child: Text(
+                                "Done",
+                                style: TextStyle(
+                                  color: Color(0XFFFFFFFF),
+                                ),
                               ),
-                            ),
-                          )),),
-                     
-                    ), 
-
-
+                            )),
+                      ),
+                    ),
                   ],
-
                 ),
-                
               ),
             ],
           ),

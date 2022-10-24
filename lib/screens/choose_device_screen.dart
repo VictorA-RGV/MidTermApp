@@ -24,7 +24,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
           children: [
             Text(
               "What coffee maker are you using?",
-              style: TextStyle(color: _iconBlue, fontSize: 18),
+              style: TextStyle(color: _iconBlue, fontSize: 18), key: Key('maker-selection'),
             ),
             Padding(padding: EdgeInsets.all(14)),
             Container(
@@ -49,7 +49,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
                             _pressOrdrip = 0;
                           } else
                             _continueBtn = false;
-                          _pressOrdrip = null;
+                          
                         });
                       },
                       style: ElevatedButton.styleFrom(
@@ -91,7 +91,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
                             _pressOrdrip = 1;
                           } else
                             _continueBtn = false;
-                          _pressOrdrip = null;
+                          
                         });
                       },
                       style: ElevatedButton.styleFrom(
@@ -121,7 +121,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
             ),
             Padding(padding: EdgeInsets.all(14)),
             SizedBox(
-                // this box can be reused for other continues and done screen
+               
                 height: 46,
                 width: 280,
                 key: Key('ctn-btn-choose'),
