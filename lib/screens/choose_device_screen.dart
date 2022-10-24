@@ -24,7 +24,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
           children: [
             Text(
               "What coffee maker are you using?",
-              style: TextStyle(color: _iconBlue, fontSize: 18), key: Key('maker-selection'),
+              style: TextStyle(color: _iconBlue, fontSize: 18, fontFamily: 'Montserrat', ),key: Key('maker-selection'),
             ),
             Padding(padding: EdgeInsets.all(14)),
             Container(
@@ -59,7 +59,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
                           side: BorderSide(color: Colors.transparent)),
                       icon: Text(
                         "   French Press",
-                        style: TextStyle(color: _iconBlue),
+                        style: TextStyle(color: _iconBlue, fontFamily: 'Montserrat', fontWeight: FontWeight.w500,letterSpacing: 1), 
                       ),
                       label: Align(
                         alignment: Alignment.centerRight,
@@ -102,7 +102,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
                       icon: Text(
                         "   Drip Machine",
                         style: TextStyle(
-                          color: _iconBlue,
+                          color: _iconBlue, fontFamily: 'Montserrat', fontWeight: FontWeight.w500, letterSpacing: 1
                         ),
                       ),
                       label: Align(
@@ -145,7 +145,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
                     "Continue",
                     style: TextStyle(
                       color:
-                          _continueBtn ? Color(0xFFFFFFFF) : Color(0XFF757474),
+                          _continueBtn ? Color(0xFFFFFFFF) : Color(0XFF757474), fontFamily: 'Montserrat', letterSpacing: 1
                     ),
                   ),
                 )),
